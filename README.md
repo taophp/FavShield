@@ -46,7 +46,7 @@ Alternatively, you _may_ code your own webbrowser extension.
 ### For Developers (Setting up FavShield)
 
 1. Create the final version of the web page containing the form you want to secure, ensuring that the relevant fields (e.g., submit button, password field) are locked using the `disabled` attribute. Include a link to the information page (step 3) within the page.
-2. Use the <a href="javascript:!function(){var r=[],t=[];function n(r,t){var n=function(r){for(var t=new Uint8Array(r.length),n=0;n<r.length;n++)t[n]=r.charCodeAt(n);return t}(r);return crypto.subtle.digest(t,n).then((function(r){return function(r){for(var t="",n=0;n<r.length;n++){var e=r[n].toString(16);e.length<2&&(e="0"+e),t+=e}return t}(Array.from(new Uint8Array(r)))}))}var e=Array.from(document.querySelectorAll("script[src]")).map((function(r){return r.src})),o=Array.from(document.querySelectorAll('link[rel="stylesheet"][href]')).map((function(r){return r.href})),c=Array.from(document.querySelectorAll("img[src]")).map((function(r){return r.src}));r=e.concat(o,c),function e(o){var c,u,a;o!==r.length?(c=r[o],u=function(r){t[o]=r,e(o+1)},(a=new XMLHttpRequest).open("GET",c,!0),a.onreadystatechange=function(){4===a.readyState&&200===a.status&&u(a.responseText)},a.send()):n(t.concat([document.documentElement.outerHTML]).join(""),"SHA-256").then((function(r){navigator.clipboard.writeText(r),alert(r)}))}(0)}();">FavShield hash</a>ing favlet to obtain the hash of the secured web page.
+2. Use the FavShield hashing favlet to obtain the hash of the secured web page.
 3. Create an information page that provides the favlet link, along with the hash of the secured page and instructions on how to use it.
 
 ### For Users (Using FavShield)
