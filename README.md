@@ -67,7 +67,7 @@ Or you can visit [our online demo](https://favshield.pixyblue.com).
 
 ## Browsers compatibility
 
-FavShield is tested and works with Chromium and Firefox. Indeed, there a [bug in Firefox]()
+FavShield is tested and works with Chromium and Firefox. Indeed, there is a <em>really old</em> [bug affecting Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=866522) that prevents favlets execution with some CSP policies, so you should avoid those policies or Firefox to use FavShield.
 
 ## Contribution
 
