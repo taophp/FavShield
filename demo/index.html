@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FavShield Demo</title>
+</head>
+<body>
+  <img src="secured/favshield-logo-with-text.svg" style="width: 150px;">
+  <h1>Welcome to FavShield Demo</h1>
+  
+  <p>This demo showcases the usage of FavShield, a client-side page integrity check, to enhance the security of web forms.</p>
+  
+  <h2>Getting Started</h2>
+  
+  <ol>
+    <li>Retrieve the following favlets for hash calculation and form unlocking :
+        <ul>
+            <li><a href='javascript:!function(){var r=[],t=[];function n(r,t){var n=function(r){for(var t=new Uint8Array(r.length),n=0;n<r.length;n++)t[n]=r.charCodeAt(n);return t}(r);return crypto.subtle.digest(t,n).then((function(r){return function(r){for(var t="",n=0;n<r.length;n++){var e=r[n].toString(16);e.length<2&&(e="0"+e),t+=e}return t}(Array.from(new Uint8Array(r)))}))}var e=Array.from(document.querySelectorAll("script[src]")).map((function(r){return r.src})),o=Array.from(document.querySelectorAll("link[rel=\"stylesheet\"][href]")).map((function(r){return r.href})),c=Array.from(document.querySelectorAll("img[src]")).map((function(r){return r.src}));r=e.concat(o,c),function e(o){var c,u,a;o!==r.length?(c=r[o],u=function(r){t[o]=r,e(o+1)},(a=new XMLHttpRequest).open("GET",c,!0),a.onreadystatechange=function(){4===a.readyState&&200===a.status&&u(a.responseText)},a.send()):n(t.concat([document.documentElement.outerHTML]).join(""),"SHA-256").then((function(r){navigator.clipboard.writeText(r),alert(r)}))}(0)}();'>🧮Calculate page hash</a></li>
+            <li><a href='javascript:!function(){var e="e0089208aaff4d34f1969c07b1c6cca350862601809e88f5599db6ec6ea080c5",t=[],r=[];function n(e,t){var r=function(e){for(var t=new Uint8Array(e.length),r=0;r<e.length;r++)t[r]=e.charCodeAt(r);return t}(e);return crypto.subtle.digest(t,r).then((function(e){return function(e){for(var t="",r=0;r<e.length;r++){var n=e[r].toString(16);n.length<2&&(n="0"+n),t+=n}return t}(Array.from(new Uint8Array(e)))}))}var o=Array.from(document.querySelectorAll("script[src]")).map((function(e){return e.src})),u=Array.from(document.querySelectorAll("link[rel=\"stylesheet\"][href]")).map((function(e){return e.href})),c=Array.from(document.querySelectorAll("img[src]")).map((function(e){return e.src}));t=o.concat(u,c),function o(u){var c,a,l;u!==t.length?(c=t[u],a=function(e){r[u]=e,o(u+1)},(l=new XMLHttpRequest).open("GET",c,!0),l.onreadystatechange=function(){4===l.readyState&&200===l.status&&a(l.responseText)},l.send()):n(r.concat([document.documentElement.outerHTML]).join(""),"SHA-256").then((function(t){if(t===e)for(var r=document.querySelectorAll("input[data-js-secured=\"true\"], textarea[data-js-secured=\"true\"]"),n=0;n<r.length;n++)r[n].disabled=!1;else alert("Unable to unlock the form : integrity of the cannot be verified !")}))}(0)}();'>🔓Unlock form</a></li>
+        </ul>
+    </li>
+    <li>Visit the <a href="secured/index.html">secured page</a> to see a sample form that requires unlocking.</li>
+    <li>Try using the <em>Unlock form</em> favlet to unlock the form and submit the data.</li>
+    <li>Explore the <a href="altered/index.html">altered page</a> : it looks exactly the same as the previous, but the FavLet have a <em>green</em> thick instead of <em>blue</em> one. Try to unlock the form with the same favlet : it does not work!</li>
+    <li>Eventuelly, you can chech the hashes our self with the <em>Calculate page hash</em> yourself.</li>
+  </ol>
+
+</body>
+</html>

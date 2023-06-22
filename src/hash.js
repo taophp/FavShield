@@ -56,15 +56,15 @@
     });
   }
 
-  var scripts = Array.from(document.querySelectorAll('script[src]')).map(function(script) {
+  var scripts = Array.from(document.querySelectorAll("script[src]")).map(function(script) {
     return script.src;
   });
 
-  var stylesheets = Array.from(document.querySelectorAll('link[rel="stylesheet"][href]')).map(function(link) {
+  var stylesheets = Array.from(document.querySelectorAll("link[rel=\"stylesheet\"][href]")).map(function(link) {
     return link.href;
   });
 
-  var images = Array.from(document.querySelectorAll('img[src]')).map(function(image) {
+  var images = Array.from(document.querySelectorAll("img[src]")).map(function(image) {
     return image.src;
   });
 
