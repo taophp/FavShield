@@ -59,6 +59,16 @@ Alternatively, you _may_ code your own webbrowser extension.
 
 Make sure to provide clear instructions and guidance on the information page to help users understand how to use the favlet effectively.
 
+## Demo
+
+This repository embed a demo page : clone this repository, start a web server in the `demo` directory (`php -S localhost:8080` for example) and open your browser on the index page, (http://localhost:8080 in your example).
+
+Or you can visit [our online demo](https://favshield.pixyblue.com).
+
+## Browsers compatibility
+
+FavShield is tested and works with Chromium and Firefox. Indeed, there a [bug in Firefox]()
+
 ## Contribution
 
 Contributions to FavShield are welcome! Whether you want to add new features, improve existing functionality, or report issues, feel free to submit a pull request or open an issue.
