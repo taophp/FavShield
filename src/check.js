@@ -1,5 +1,5 @@
 (function() {
-    var expectedHash = '<PUT YOUR HASH HERE>';
+    var expectedHash = "<PUT YOUR HASH HERE>";
     var files = [];
     var fileContents = [];
   
@@ -47,7 +47,7 @@
         var pageContent = fileContents.concat([document.documentElement.outerHTML]);
         hash(pageContent.join(""), "SHA-256").then(function(hashValue) {
           if (hashValue === expectedHash) {
-            var securedFields = document.querySelectorAll('input[data-js-secured="true"], textarea[data-js-secured="true"]');
+            var securedFields = document.querySelectorAll("input[data-js-secured=\"true\"], textarea[data-js-secured=\"true\"]");
             for (var i = 0; i < securedFields.length; i++) {
               securedFields[i].disabled = false;
             }
@@ -63,15 +63,15 @@
       });
     }
   
-    var scripts = Array.from(document.querySelectorAll('script[src]')).map(function(script) {
+    var scripts = Array.from(document.querySelectorAll("script[src]")).map(function(script) {
       return script.src;
     });
   
-    var stylesheets = Array.from(document.querySelectorAll('link[rel="stylesheet"][href]')).map(function(link) {
+    var stylesheets = Array.from(document.querySelectorAll("link[rel="stylesheet"][href]")).map(function(link) {
       return link.href;
     });
   
-    var images = Array.from(document.querySelectorAll('img[src]')).map(function(image) {
+    var images = Array.from(document.querySelectorAll("img[src]")).map(function(image) {
       return image.src;
     });
   
