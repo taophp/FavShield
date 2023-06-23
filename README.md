@@ -56,7 +56,7 @@ Alternatively, you _may_ code your own webbrowser extension.
    3. minify your new source[^1];
 4. Create an information page that provides the favlet link, along with the hash of the secured page and instructions on how to use it:
    1. copy and paste the minified code into the `href` attribute of an html `<a>` tag **using simple quotes** `'`,
-   2. do not forget to prefix your code with the pseudo-protocole `javascript:`.
+   2. do not forget to prefix your code with the pseudo-protocol `javascript:`.
 
 ### For Users (Using FavShield)
 
