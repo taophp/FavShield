@@ -43,6 +43,16 @@ Alternatively, you _may_ code your own webbrowser extension.
 
 ## Usage
 
+### Warning
+
+This project is intended as a proof of concept and should be treated as such. Any implementation in a production environment requires a thorough review by a security expert. FavShield is just one component in a comprehensive security chain, which effectiveness is only as strong as its weakest link.
+
+It is important to note that FavShield alone cannot guarantee complete security for your applications. It is essential to consider other security measures, such as secure network communication, server-side validation, input sanitization, and regular security audits.
+
+**The code provided is offered "as is" without any warranties. It can be freely used, but users assume all risks and liabilities associated with its use**. It is strongly recommended to test and assess the code thoroughly in your own environment before deploying it.
+
+Always prioritize the security of your applications and consult with experts to ensure comprehensive protection against potential vulnerabilities.
+
 ### For Developers (Setting up FavShield)
 
 1. Create the final version of the web page containing the form you want to secure:
