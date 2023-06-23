@@ -80,7 +80,7 @@ Make sure to provide clear instructions and guidance on the information page to 
 
 ## Demo
 
-This repository embed a demo page : clone this repository, start a web server in the `demo` directory (`php -S localhost:8080` for example) and open your browser on the index page, (http://localhost:8080 in your example).
+This repository embed a demo page : clone this repository, start a web server in the `demo` directory (`php -S localhost:8080` for example) and open your browser on the index page, (http://localhost:8080 in our example).
 
 Or you can visit [our online demo](https://favshield.pixyblue.com).
 
