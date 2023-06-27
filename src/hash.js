@@ -1,11 +1,11 @@
-(function() {
+(function () {
   var files = [];
   var fileContents = [];
 
   function loadFile(url, callback) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
         callback(xhr.responseText);
       }
@@ -13,58 +13,42 @@
     xhr.send();
   }
 
-  function toArrayBuffer(buffer) {
-    var arrayBuffer = new Uint8Array(buffer.length);
-    for (var i = 0; i < buffer.length; i++) {
-      arrayBuffer[i] = buffer.charCodeAt(i);
-    }
-    return arrayBuffer;
-  }
-
-  function toHexString(uint8Array) {
-    var hexString = "";
-    for (var i = 0; i < uint8Array.length; i++) {
-      var hex = uint8Array[i].toString(16);
-      if (hex.length < 2) {
-        hex = "0" + hex;
-      }
-      hexString += hex;
-    }
-    return hexString;
-  }
-
   function hash(data, algorithm) {
-    var arrayBuffer = toArrayBuffer(data);
-    return crypto.subtle.digest(algorithm, arrayBuffer).then(function(hashBuffer) {
+    var encoder = new TextEncoder();
+    var dataBuffer = encoder.encode(data);
+    return crypto.subtle.digest(algorithm, dataBuffer).then(function (hashBuffer) {
       var hashArray = Array.from(new Uint8Array(hashBuffer));
-      return toHexString(hashArray);
+      var hashString = hashArray.map(function (byte) {
+        return byte.toString(16).padStart(2, '0');
+      }).join('');
+      return hashString;
     });
   }
 
   function handleFiles(index) {
     if (index === files.length) {
       var pageContent = fileContents.concat([document.documentElement.outerHTML]);
-      hash(pageContent.join(""), "SHA-256").then(function(hashValue) {
+      hash(pageContent.join(""), "SHA-256").then(function (hashValue) {
         navigator.clipboard.writeText(hashValue);
         alert(hashValue);
       });
       return;
     }
-    loadFile(files[index], function(content) {
+    loadFile(files[index], function (content) {
       fileContents[index] = content;
       handleFiles(index + 1);
     });
   }
 
-  var scripts = Array.from(document.querySelectorAll("script[src]")).map(function(script) {
+  var scripts = Array.from(document.querySelectorAll("script[src]")).map(function (script) {
     return script.src;
   });
 
-  var stylesheets = Array.from(document.querySelectorAll("link[rel=\"stylesheet\"][href]")).map(function(link) {
+  var stylesheets = Array.from(document.querySelectorAll("link[rel=\"stylesheet\"][href]")).map(function (link) {
     return link.href;
   });
 
-  var images = Array.from(document.querySelectorAll("img[src]")).map(function(image) {
+  var images = Array.from(document.querySelectorAll("img[src]")).map(function (image) {
     return image.src;
   });
 
