@@ -34,7 +34,7 @@
             securedFields[i].disabled = false;
           }
         } else {
-          alert("Unable to unlock the form : integrity of the cannot be verified !")
+          alert("Unable to unlock the form : integrity of the cannot be verified !");
         }
     });
       return;
