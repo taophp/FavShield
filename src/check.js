@@ -28,9 +28,15 @@
     if (index === files.length) {
       var pageContent = fileContents.concat([document.documentElement.outerHTML]);
       hash(pageContent.join("")).then(function (hashValue) {
-        navigator.clipboard.writeText(hashValue);
-        alert(hashValue);
-      });
+        if (hashValue === expectedHash) {
+          var securedFields = document.querySelectorAll("input[data-js-secured=\"true\"], textarea[data-js-secured=\"true\"]");
+          for (var i = 0; i < securedFields.length; i++) {
+            securedFields[i].disabled = false;
+          }
+        } else {
+          alert("Unable to unlock the form : integrity of the cannot be verified !")
+        }
+    });
       return;
     }
     loadFile(files[index], function (content) {
