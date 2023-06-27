@@ -16,8 +16,10 @@
   function hash(data) {
     var dataBuffer = new TextEncoder().encode(data);
     return crypto.subtle.digest("SHA-256", dataBuffer).then(function (hashBuffer) {
-      var hashString = new TextDecoder().decode(new Uint8Array(hashBuffer));
-      return hashString;
+      var hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(function (byte) {
+        return byte.toString(16).padStart(2, '0');
+      }).join('');
     });
   }
 
