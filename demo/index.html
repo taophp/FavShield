@@ -9,9 +9,22 @@
   <h1>Welcome to FavShield Demo</h1>
   
   <p>This demo showcases the usage of FavShield, a client-side page integrity check, to enhance the security of web forms.</p>
+
+  <h2>Prerequisites</h2>
+  
+  <p>To run this demonstration locally, you need to git clone <a href="https://github.com/taophp/FavShield" target="_blank">
+    this project</a> and run a local PHP webserver.<br>
+    To clone, just run this command&nbsp;: <code>git clone https://github.com/taophp/FavShield.git</code><br>
+    There is many ways to run a PHP-enabled webserver. For examples, run one of these commands in the <code>demo</code>
+    directory of this project&nbsp;:
+  <ul>
+    <li><code>php -S localhost:8080</code> if you have PHP installed on your machine,</li>
+    <li><code>docker run --rm -it -p 8080:8080 -v $(pwd):/app php:cli-alpine php -S 0.0.0.0:8080 -t /app</code> if you prefer to use docker instead.</li>
+  </ul>
+  And then browse to <a href="http://localhost:8080">http://localhost:8080</a></p>
   
   <h2>Getting Started</h2>
-  
+
   <ol>
     <li>Retrieve the following favlets for hash calculation and form unlocking :
         <ul>
@@ -19,7 +32,7 @@
             <li><a href='javascript:(function(){var a=[],b=[],c="1a29b13a59e5ec116f4488efe2ed472cfa00fd93134a04daf8741aa712ae3156",f=Array.from(document.querySelectorAll("script[src]")).map(script=>script.src);function d(A){return crypto.subtle.digest("SHA-256",new TextEncoder().encode(A)).then(_=>{var B=Array.from(new Uint8Array(_));return B.map(byte=>byte.toString(16).padStart(2,"0")).join("")})}function e(A){if(A==a.length){var _=b.concat([document.documentElement.outerHTML]);d(_.join("")).then(B=>{if(B==c){var C=document.querySelectorAll("input[data-js-secured=\"true\"], textarea[data-js-secured=\"true\"]");for(var i=0;i<C.length;i++)C[i].disabled=!1;alert("Form unlocked !")}else alert("Unable to unlock the form : integrity of the cannot be verified !\nHash found: "+B+"\nHash expected: "+c)});return}fetch(a[A]).then(B=>{b[A]=B;e(A+1)})}a=f.concat(Array.from(document.querySelectorAll("link[rel=\"stylesheet\"][href]")).map(link=>link.href),Array.from(document.querySelectorAll("img[src]")).map(image=>image.src));e(0)})();'>🔓Unlock form</a></li>
         </ul>
     </li>
-    <li>Visit the <a href="secured/index.html">secured page</a> to see a sample form that requires unlocking.</li>
+    <li>Visit the <a href="secured/index.php">secured page</a> to see a sample form that requires unlocking.</li>
     <li>Try using the <em>Unlock form</em> favlet to unlock the form and submit the data.</li>
     <li>Explore the <a href="altered/index.html">altered page</a> : it looks exactly the same as the previous, but the FavLet have a <em>green</em> thick instead of <em>blue</em> one. Try to unlock the form with the same favlet : it does not work!</li>
     <li>Eventuelly, you can check the hashes yourself with the <em>Calculate page hash</em> yourself.</li>
